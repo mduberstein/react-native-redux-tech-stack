@@ -8,8 +8,8 @@ import * as actions from '../actions';
 class ListItem extends Component {
 
   renderDescription() {
-    const {library, selectedLibraryId} = this.props;
-    if (library.id === selectedLibraryId) {
+    const {library, expanded} = this.props;
+    if (expanded) {
       return (
         <Text>{library.description}</Text>
       );
@@ -51,8 +51,11 @@ const styles = StyleSheet.create({
 //   }
 // };
 
-const mapStateToProps = state => {
-  return {selectedLibraryId: state.selectedLibraryId};
+// ownProps is the props passed to the component
+const mapStateToProps = (state, ownProps) => {
+  const expanded = state.selectedLibraryId === ownProps.library.id;
+  // return {expanded: expanded}; // long version
+  return {expanded}; // syntax sugar
 }
 
 // State retrieval from store - store.getState() is responsibility of the first argument. 
