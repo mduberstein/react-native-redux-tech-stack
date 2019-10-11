@@ -12,7 +12,7 @@ class LibraryList extends Component {
 
   render() {
     //console.warn(this.props);
-    return (
+    return (  
       <FlatList
         data={this.props.libraries}
         renderItem={({item}) => this.renderItem(item)}
