@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, TouchableWithoutFeedback, View } from 'react-native'
 import {connect} from 'react-redux';
 import { CardSection } from './common';
 import * as actions from '../actions';
@@ -8,12 +8,17 @@ import * as actions from '../actions';
 class ListItem extends Component {
   render(){
     // console.warn(this.props);
-    console.log(this.props);
+    // console.log(this.props);
     const{titleStyle} = styles;
+    const {id, title} = this.props.library;
     return (
-      <CardSection>
-         <Text style={titleStyle}>{this.props.library.title}</Text>
-      </CardSection>
+      <TouchableWithoutFeedback onPress={()=>this.props.selectLibrary(id)}>
+        <View>
+          <CardSection>
+            <Text style={titleStyle}>{title}</Text>
+          </CardSection>
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
@@ -31,8 +36,8 @@ const styles = StyleSheet.create({
 //   }
 // };
 
-// null is for mapStateToProps
-// second argument actions, causes 
-// 1. all the actions accessible by name due to the import above to be passed to the ListItem as this.props.<action name>, ex. this.props.selectLibrary
-// 2. when called this.props.selectLibrary() to dispatch its return value as action to all the reducers in the redux store, wired via Provider in file app.js
+// null in the first argument is for the mapStateToProps
+// second argument actions - causes 
+// 1. each actions(term used here for action creator) accessible by name due to the import above to be passed to the ListItem as this.props.<action name>, ex. this.props.selectLibrary and
+// 2. when called as this.props.selectLibrary(libraryId) to dispatch its return value as action to all the reducers in the redux store, wired via Provider in the file app.js
 export default connect(null,  actions)(ListItem);
