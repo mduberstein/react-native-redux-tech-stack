@@ -6,7 +6,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "react-devtools": "react-devtools"
   },
   "dependencies": {
     "react": "16.8.1",
@@ -21,6 +22,7 @@
     "babel-jest": "^24.1.0",
     "jest": "^24.1.0",
     "metro-react-native-babel-preset": "^0.51.1",
+    "react-devtools": "^3.6.3",
     "react-test-renderer": "16.8.1"
   },
   "jest": {
