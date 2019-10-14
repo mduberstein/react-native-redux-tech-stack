@@ -39,7 +39,7 @@ class ListItem extends Component {
     const {id, title} = this.props.library;
 
     return (
-      // this.props.selectLibrary(id) call is dispatch
+      // dispatch implementation: this.props.selectLibrary(id)
       <TouchableWithoutFeedback onPress={() => this.props.selectLibrary(id)}>
         <View>
           <CardSection>
