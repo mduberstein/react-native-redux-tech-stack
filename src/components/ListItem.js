@@ -21,6 +21,9 @@ class ListItem extends Component {
 
   renderDescription() {
     const {library, expanded} = this.props;
+
+    // expanded is a state slice returned from mapStateToProps as a response
+    // to dispatch
     if (expanded) {
       return (
         <CardSection>
